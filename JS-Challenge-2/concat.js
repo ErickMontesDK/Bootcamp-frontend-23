@@ -7,14 +7,14 @@ let data = [
 
 const completePhrase = (array) =>{
     let all=[]
-    
-    for(let i=0; i<array.length; i++){
 
-        let sentence = array[i].reduce((element, next)=>{
-            return element+" "+next
+    array.forEach(element => {
+        let sentence = element.reduce((total, word)=>{
+            return total + " " + word
         })
         all.push(sentence)
-    }
+    })
+    
     return all
 }
 
