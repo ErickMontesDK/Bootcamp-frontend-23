@@ -1,16 +1,21 @@
 let arr2 = [7, 9, 1, 'a', 'a', 'f', 9, 4, 2, 'd', 'd']
 
 function duplicate(arr){
-    let result = []
+    let filtered = arr
+    let notRepeat = []
+    
 
-    for (var i = 0; i < arr.length; i++){
-        const check = arr.filter((element)=>element===arr[i])
-        // if(check){result.push(arr[i])}
-        if(check.length>1){
-            result.push(check[0])
+    for(let i = 0; i < arr.length; i++){
+
+        let isThere = filtered.some((element)=>arr[i]===element)
+
+        if(isThere){
+            filtered = filtered.filter((element)=>element !== arr[i])
+            notRepeat.push(arr[i])
         }
+        
     }
-    return result
+    return notRepeat
     
 }
 console.log(duplicate(arr2))

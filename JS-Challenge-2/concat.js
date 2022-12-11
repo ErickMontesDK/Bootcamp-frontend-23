@@ -7,6 +7,7 @@ let data = [
 
 const completePhrase = (array) =>{
     let all=[]
+    
     for(let i=0; i<array.length; i++){
 
         let sentence = array[i].reduce((element, next)=>{
