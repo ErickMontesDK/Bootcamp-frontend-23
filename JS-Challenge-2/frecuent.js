@@ -1,4 +1,4 @@
-let arr1= [3, 'c', 'c', 'a', 2, 3, 'c', 2, 4, 9, 9]
+let arr1= [3, 'c', 'c', 2, 3, 'c', 2, 4, 9, 9]
 
 function frecuence (arr){
     let leastFr

@@ -1,0 +1,22 @@
+Si bien el uso de var y let es el de declarar variables, tienen algunas diferencias 
+en cuanto a su comportamiento
+
+Una diferencia principal entre los dos es que si bien, ambos pueden modificar el valor asignado 
+dentro de su variable, una variable de tipo var puede volver a declararse 
+dentro del mismo scope, como si fueran dos variable distintas que comparten el mismo nombre.
+Claro que al llamar a esta función, dependiendo de en que momento se haga puedes estar llamando
+a una u otra variable. 
+En cambio con la variable de tipo let, no es posible volver a declarar una variable con el mismo nombre
+siempre que este dentro del mismo scope. 
+
+Si ambas variables se declaran dentro de una función, solo estarán "disponibles" dentro 
+de esa función, o sea que su scope es local. No se pueden usar en un scope global si
+no fueron declaradas en ese scope. Cuando estamos en distintos scopes locales, puedes tener
+a dos variables let declaradas con el mismo nombre, ya que no interactuan una con la otra.
+
+Otra diferencias es que la vriables var permite un comportamiento conocido como "Hoisting".
+Basicamente si se intenta acceder al valor de un var ya declarado pero al que aun no se le 
+asigna un valor, nos regresa un "undefined". Reconoce que solo está declarada.
+En caso de otra variable, al acceder a su valor sin haberse asignado antes, regresará un 
+"ReferenceError"
+
