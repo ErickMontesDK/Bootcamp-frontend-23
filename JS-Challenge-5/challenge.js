@@ -17,17 +17,17 @@ async function loadJson(url){
 }
 
 async function demoGithubUser(){
-    let name = "ErickMontesDK"
+    let name = "ErickMontesD"
     
     try{
         const user = await loadJson(`https://api.github.com/users/${name}`)
         console.log(`Full name: ${user.name}`)
         return user
     }catch(err){
-        if(err instanceof HttpError && err.status == 404){
+        if(err instanceof HttpError && err.response.status == 404){
             console.log(`No such user, please reenter`)
         }else {
-            throw err
+            console.log(err) 
         }
     }
 }
