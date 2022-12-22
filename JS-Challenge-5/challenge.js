@@ -17,7 +17,7 @@ async function loadJson(url){
 }
 
 async function demoGithubUser(){
-    let name = "ErickMontesD"
+    let name = "ErickMontesDK"
     
     try{
         const user = await loadJson(`https://api.github.com/users/${name}`)
