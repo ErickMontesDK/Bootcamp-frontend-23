@@ -1,53 +1,72 @@
-body{
+:root{
+    --yellow:#cab15a;
+    --green: #248E87;
+    --green-white:#bfddd8;
+    --pink: #ad5e89;
+    --pink-white: #cc9eab;
+    --brown-yellow:#ae9434;
+    --brown:#8a4c2a;
+    --grey:#68646c;
+    --white:#c9ccae;
+}
+
+.cardsDisplay{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 .bodyCard{
-    background-color: #ae9434;
+    background-color: var(--brown-yellow);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px 5px 10px 5px;
-    border: 8px solid #68646c;
+    align-items: space-between;
+    padding: 10px 10px 10px 10px;
+    border: 8px solid var(--grey);
+    max-width: 310px;
+    row-gap: 10px;
 }
+
 .head{
-    border: 5px outset #c9ccae;
-    width: 290px;
+    border: 5px outset var(--white);
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    column-gap: 10px;
-    padding: 0 2px 0 5px;
+    justify-content: space-between;
+    padding: 3px 10px 3px 10px;
     box-sizing: content-box;
     font-weight: bold;
 }
-
-.ico, .rate img{
-    width:20px;
+.head img{
+    max-width:25px;
 }
 .rate{
-    width: 290px;
     display: flex;
     justify-content: flex-end;
-    margin:5px 0 5px 0;
+    margin:0 5px 0 5px;
+}
+.rate img{
+    max-width:18px;
 }
 .imageContainer{
-    max-width:277px;
-    min-width: 87%;
-    border: 7px solid #68646c;
+    border: 7px solid var(--grey);
+    margin:0 8px 0 8px;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+.imageContainer img{
+    transform: translate(-50%,-50%);
+    margin-left: 50%;
+    margin-top: 61%;
+    width: 129%;
 }
 .boxInfo{
-    background-color: #cab15a;
+    background-color: var(--yellow);
     font-size: small;
     padding: 10px;
-    margin: 10px;
-    border: 3px solid #8a4c2a;
+    border: 3px solid var(--brown);
+    display: flex;
+    flex-direction: column;
 }
 
-.textInfo{
-    max-width:280px
-}
 .type::before{
     content: "[";
     font-weight: bolder;
@@ -65,4 +84,16 @@ body{
     padding-top: 5px;
     text-align: right;
     font-weight: bolder;
+}
+.Spell{
+    background-color: var(--green) !important;
+}
+.Spell .boxInfo{
+    background-color: var(--green-white) !important;
+}
+.Trap{
+    background-color: var(--pink) !important;
+}
+.Trap .boxInfo{
+    background-color: var(--pink-white) !important;
 }
