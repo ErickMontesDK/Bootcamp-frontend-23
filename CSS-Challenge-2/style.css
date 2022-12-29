@@ -1,0 +1,64 @@
+.fullBoard{
+    display: grid;
+    border: 3px solid gray;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-column-gap: 10px;
+}
+.upsideDown{
+    transform: rotateZ(180deg)
+}
+.fullBoard div{
+    display: inherit;
+    grid-row-gap: 10px;
+    grid-column-gap:10px;
+}
+.cardPlace{
+    aspect-ratio: 59/86;
+    border: 3px solid white;
+    outline: 4px solid black;
+    align-items: stretch;
+    justify-items: stretch;
+    background-color: #5584bd;
+}
+.boardCenterField .cardPlace{
+    aspect-ratio: 70/86;
+}
+.card{
+    border: 3px solid black;
+    background-image: url('./assets/main-deck.png');
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
+}
+.boardLeftSide{
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr ;
+    justify-items: end;
+}
+.boardCenterField{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    justify-items: space-between;
+    align-items: center;
+    align-content: center;
+    grid-row-gap:10px;
+}
+.boardRightSide{
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+.boardRightSide .cardPlace:nth-child(0){
+    grid-column:1/2;
+    grid-row:1/2
+}
+.boardRightSide .cardPlace:nth-child(1){
+    grid-column:1/2;
+    grid-row:2/3
+}
+.boardRightSide .cardPlace:nth-child(2){
+    grid-column:1/2;
+    grid-row:3/4
+}
+.boardRightSide .cardPlace:nth-child(3){
+    grid-column:2/3;
+    grid-row:1/2
+}
