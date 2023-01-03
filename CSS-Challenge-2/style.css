@@ -25,10 +25,30 @@
 }
 .card{
     border: 3px solid black;
-    background-image: url('./assets/main-deck.png');
     background-position: center;
     background-size: 40%;
     background-repeat: no-repeat;
+}
+.graveyard .card{
+    background-image: url('./assets/graveyard.png');
+}
+.deckzone .card{
+    background-image: url('./assets/main-deck.png');
+}
+.right-pendulum .card{
+    background-image: url('./assets/right-pendulum.png');
+}
+.left-pendulum .card{
+    background-image: url('./assets/left-pendulum.png');
+}
+.field .card{
+    background-image: url('./assets/field\,\ spell\,\ trap.png');
+}
+.extradeck .card{
+    background-image: url('./assets/extra-deckpng.png');
+}
+.banished .card{
+    background-image: url('./assets/banished\ zone.png');
 }
 .boardLeftSide{
     grid-template-rows: 1fr 1fr 1fr;
@@ -37,7 +57,7 @@
 }
 .boardCenterField{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    justify-items: space-between;
+    justify-items: stretch;
     align-items: center;
     align-content: center;
     grid-row-gap:10px;
