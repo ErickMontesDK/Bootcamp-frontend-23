@@ -10,7 +10,7 @@ async function fillBoardWithCards(){
     console.log(numberOfMonsters)
     const numberOfSpells = Math.floor(Math.random() * spell.length + 1)
     const numberOfGraveyards = Math.floor(Math.random() * graveyard.length+1)
-    const numberOfDecks = Math.floor(Math.random() * deck.length)
+    const numberOfDecks = Math.floor(Math.random() * deck.length+1)
 
     for(let i = 0; i < numberOfMonsters; i++){
         const isMagicCard = false
@@ -24,12 +24,18 @@ async function fillBoardWithCards(){
         graveyard[i].removeChild(graveyard[i].firstChild)
         graveyard[i].replaceChild(cardGotted, graveyard[i].firstChild)
     }
-    // for(let i = 0; i < numberOfSpells; i++){
-    //     const isMagicCard = true
-    //     const cardGotted = await getCardForASpecificType(isMagicCard)
-    //     spell[i].removeChild(spell[i].firstChild)
-    //     spell[i].replaceChild(cardGotted, spell[i].firstChild)
-    // }
+    for(let i = 0; i < numberOfSpells; i++){
+        const isMagicCard = true
+        const cardGotted = await getCardForASpecificType(isMagicCard)
+        spell[i].removeChild(spell[i].firstChild)
+        spell[i].replaceChild(cardGotted, spell[i].firstChild)
+    }
+    for(let i = 0; i < numberOfDecks; i++){
+        const isMagicCard = false
+        const cardGotted = await getCardForASpecificType(isMagicCard)
+        deck[i].removeChild(deck[i].firstChild)
+        deck[i].replaceChild(cardGotted, deck[i].firstChild)
+    }
 }
 
 async function getCardForASpecificType(status){
@@ -37,7 +43,7 @@ async function getCardForASpecificType(status){
     let data = await rawInfo.json()
     const type = `${data.type}`
     console.log(type)
-    if(status === true && type === 'Spell Card' && type === 'Trap Card'){
+    if(status === true && (type === 'Spell Card' || type === 'Trap Card')){
         return createTheCard(data)
     } else if(status === false && type !== 'Spell Card' && type !== 'Trap Card' ){
         return createTheCard(data)
@@ -97,10 +103,12 @@ function createTheCard(data){
 
     const card = document.createElement('div')
     card.appendChild(head)
-    card.appendChild(rate)
+    if(data.type !== 'Spell Card' && data.type !== 'Trap Card'){
+        card.appendChild(rate)
+    }
     card.appendChild(imageCardBox)
     card.appendChild(boxInfo)
-    card.setAttribute('class','usedCard')
+    card.setAttribute('class',`usedCard ${data.type}`)
 
     return card
 }
