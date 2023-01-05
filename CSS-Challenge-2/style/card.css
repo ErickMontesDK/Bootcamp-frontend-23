@@ -1,0 +1,110 @@
+:root{
+    --yellow:#cab15a;
+    --green: #248E87;
+    --green-white:#bfddd8;
+    --pink: #ad5e89;
+    --pink-white: #cc9eab;
+    --brown-yellow:#ae9434;
+    --brown:#8a4c2a;
+    --grey:#68646c;
+    --white:#c9ccae;
+}
+.usedCard{
+    background-color: var(--brown-yellow);
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    border: 1px solid var(--grey);
+    max-width: 100%;
+    font-size:x-small;
+    box-sizing: content-box;
+}
+.usedCard div{
+    display: inherit;
+}
+
+.rate img{
+    max-width:10px;
+}
+.head{
+    flex-direction: row;
+    border: 3px outset var(--white);
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0 3px 0 3px;
+    box-sizing: content-box;
+    font-weight: bold;
+}
+.head img{
+    max-width:15px;
+}
+.usedCard .rate{
+    align-self: flex-end;
+    justify-content: flex-end;
+    max-width: 90%;
+    overflow-x:hidden;
+}
+.head .NameCard{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow-y: hidden;
+}
+.imageContainer{
+    border: 2px solid var(--grey);
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    margin: 0 10%;
+}
+.imageContainer img{
+    transform: translate(-50%,-50%);
+    margin-left: 50%;
+    margin-top: 61%;
+    width: 200%;
+    height: 200%;
+}
+.boxInfo{
+    background-color: var(--yellow);
+    padding: 3px;
+    border: 3px solid var(--brown);
+    flex-direction: column;
+    justify-content: flex-start;
+    aspect-ratio: 4.7/1.5 ;
+    overflow-y:scroll;
+}
+.boxInfo p{
+    margin: 0px;
+}
+.type::before{
+    content: "[";
+    font-weight: bolder;
+}
+.type::after{
+    content: "]";
+    font-weight: bolder;
+}
+.type{
+    font-weight: bolder;
+}
+.stats{
+    display: block;
+    border-top: 1px solid black;
+    padding-top: 3px;
+    text-align: right;
+    font-weight: bolder;
+}
+.Spell{
+    background-color: var(--green) ;
+}
+.Spell .boxInfo{
+    background-color: var(--green-white) ;
+}
+.Trap{
+    background-color: var(--pink) ;
+}
+.Trap .boxInfo{
+    background-color: var(--pink-white) ;
+}

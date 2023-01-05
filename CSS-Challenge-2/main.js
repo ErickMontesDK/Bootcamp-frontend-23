@@ -7,34 +7,33 @@ const deck = document.getElementsByClassName('deckzone');
 
 async function fillBoardWithCards(){
     const numberOfMonsters = Math.floor(Math.random() * monster.length+1)
-    console.log(numberOfMonsters)
     const numberOfSpells = Math.floor(Math.random() * spell.length + 1)
     const numberOfGraveyards = Math.floor(Math.random() * graveyard.length+1)
     const numberOfDecks = Math.floor(Math.random() * deck.length+1)
 
-    for(let i = 0; i < numberOfMonsters; i++){
-        const isMagicCard = false
+    console.log(numberOfMonsters, numberOfSpells, numberOfGraveyards, numberOfDecks)
+
+    await getPlaceForCard(numberOfMonsters,false,monster)
+    await getPlaceForCard(numberOfSpells,true,spell)
+    await getPlaceForCard(numberOfGraveyards,undefined,graveyard)
+    await getPlaceForCard(numberOfDecks,undefined,deck)
+}
+
+async function getPlaceForCard(numberOfCards,isMagicCard,element){
+    let CardOccupiedIndex = []
+    for(let i = 0; i < numberOfCards; i++){
         const cardGotted = await getCardForASpecificType(isMagicCard)
-        monster[i].removeChild(monster[i].firstChild)
-        monster[i].replaceChild(cardGotted, monster[i].firstChild)
-    }
-    for(let i = 0; i < numberOfGraveyards; i++){
-        const isMagicCard = false
-        const cardGotted = await getCardForASpecificType(isMagicCard)
-        graveyard[i].removeChild(graveyard[i].firstChild)
-        graveyard[i].replaceChild(cardGotted, graveyard[i].firstChild)
-    }
-    for(let i = 0; i < numberOfSpells; i++){
-        const isMagicCard = true
-        const cardGotted = await getCardForASpecificType(isMagicCard)
-        spell[i].removeChild(spell[i].firstChild)
-        spell[i].replaceChild(cardGotted, spell[i].firstChild)
-    }
-    for(let i = 0; i < numberOfDecks; i++){
-        const isMagicCard = false
-        const cardGotted = await getCardForASpecificType(isMagicCard)
-        deck[i].removeChild(deck[i].firstChild)
-        deck[i].replaceChild(cardGotted, deck[i].firstChild)
+        let isOccupiedThePLace = true;
+        let place 
+
+        while(isOccupiedThePLace){
+            place = Math.floor(Math.random()*(element.length))
+            isOccupiedThePLace = CardOccupiedIndex.includes(place)
+            CardOccupiedIndex.push(place)
+        }
+
+        element[place].removeChild(element[place].firstChild)
+        element[place].replaceChild(cardGotted, element[place].firstChild)
     }
 }
 
@@ -43,11 +42,14 @@ async function getCardForASpecificType(status){
     let data = await rawInfo.json()
     const type = `${data.type}`
     console.log(type)
+
     if(status === true && (type === 'Spell Card' || type === 'Trap Card')){
         return createTheCard(data)
     } else if(status === false && type !== 'Spell Card' && type !== 'Trap Card' ){
         return createTheCard(data)
-    } else {
+    } else if(status === undefined){
+        return createTheCard(data)
+    } else{
         return getCardForASpecificType(status)
     }
 }
@@ -63,15 +65,7 @@ function createTheCard(data){
     head.appendChild(NameCard)
     head.appendChild(imageIcon)
 
-    const rate = document.createElement('div')
-    rate.setAttribute('class', 'rate')
-
-    let star = ''
-
-    for(let j=0; j<data.level; j++){
-        star = star + '<img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Starball_Red.svg">'
-    }
-    rate.innerHTML = star
+    
 
     const imageCardBox = document.createElement('div');
     imageCardBox.setAttribute('class', 'imageContainer')
@@ -89,23 +83,38 @@ function createTheCard(data){
     textInfo.innerText =`${data.desc}`
     textInfo.setAttribute('class', 'textInfo')
     boxInfo.setAttribute('class', 'boxInfo')
+    stats.setAttribute('class', 'stats')
 
     boxInfo.appendChild(type)
     boxInfo.appendChild(textInfo)
 
-    if(data.atk !== undefined && data.atk !== null){
+    if((data.atk !== undefined && data.atk !== null) && (data.def !== undefined && data.def !== null)){
         stats.innerText = `ATK/${data.atk} DEF/${data.def}`
-        stats.setAttribute('class', 'stats')
-         
+        boxInfo.appendChild(stats)
+
+    } else if((data.atk !== undefined && data.atk !== null)){
+        stats.innerText = `ATK/${data.atk}`
         boxInfo.appendChild(stats)
     }
+    
+    
     NameCard.innerHTML = `${data.name}`
 
     const card = document.createElement('div')
     card.appendChild(head)
+
     if(data.type !== 'Spell Card' && data.type !== 'Trap Card'){
+        const rate = document.createElement('div')
+        rate.setAttribute('class', 'rate')
+        let star = ''
+
+        for(let j=0; j<data.level; j++){
+            star = star + '<img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Starball_Red.svg">'
+        }
+        rate.innerHTML = star
         card.appendChild(rate)
     }
+
     card.appendChild(imageCardBox)
     card.appendChild(boxInfo)
     card.setAttribute('class',`usedCard ${data.type}`)
