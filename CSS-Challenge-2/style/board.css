@@ -15,14 +15,12 @@
 }
 .DuelBoard div{
     display: inherit;
-    /* grid-column-gap:10px; */
 }
 .boardLeftSide{
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: minmax(0, 1fr);
     justify-items: end;
     grid-row-gap:2.5px;
-
 }
 .boardCenterField{
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -39,8 +37,6 @@
     "pendulo none"
     "desk none";
     grid-row-gap:2.5px;
-    /* align-items: stretch !important;
-    justify-items: stretch !important; */
 }
 .cardPlace{
     aspect-ratio: 59/86;
