@@ -1,0 +1,25 @@
+
+form{
+text-align: right;
+position: absolute;
+right: 50%;
+transform: translateX(50%);
+width: max-content;
+}
+.instruccion{
+    display: none;
+}
+
+@media  screen and (max-width:767px){
+    .instruccion{
+        display:inline;
+    }
+    .instruccionCompleta{
+        display: none;
+    }
+}
+@media  screen and (max-width:480px){
+    .instruccion{
+        display: none;
+    }
+}
