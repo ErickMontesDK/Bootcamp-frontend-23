@@ -20,7 +20,8 @@ body::-webkit-scrollbar {
     justify-items: center;
 }
 .header img{
-    height: 120px;
+    max-height: 120px;
+    max-width: 100%;
 }
 .footer{
     display: grid;
@@ -32,6 +33,7 @@ body::-webkit-scrollbar {
     font-family: 'Arvo', serif;
     font-size: 36px;
     color:#5B5D5B;
+    align-items: center;
 }
 .boards{
     grid-area: boards;

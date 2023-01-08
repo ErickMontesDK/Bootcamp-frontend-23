@@ -87,3 +87,23 @@
 .banished .card{
     background-image: url('../assets/banished\ zone.png');
 }
+
+@media screen and (max-width: 700px) {
+    .DuelBoard{
+        grid-template-rows: 1fr 1.5fr 1fr;
+        grid-template-columns: auto;
+    }
+    .boardLeftSide{
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        max-width: 100%;
+        justify-items: stretch;
+    }
+    .boardRightSide{
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, minmax(0,1fr));
+        grid-template-areas: 
+        "desk pendulo grave banished";
+        max-width: 100%;
+    }
+}

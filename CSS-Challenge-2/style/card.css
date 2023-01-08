@@ -102,6 +102,7 @@
     padding-top: 3px;
     text-align: right;
     font-weight: bolder;
+    line-break: anywhere;
 }
 .Spell{
     background-color: var(--green) ;
