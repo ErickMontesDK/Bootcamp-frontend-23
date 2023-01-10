@@ -105,14 +105,19 @@ function createTheCard(data){
 
     if(data.type !== 'Spell Card' && data.type !== 'Trap Card'){
         const rate = document.createElement('div')
+        const rateInsideImg = document.createElement('div')
         rate.setAttribute('class', 'rate')
+        rateInsideImg.setAttribute('class', 'rateInside')
         let star = ''
 
         for(let j=0; j<data.level; j++){
             star = star + '<img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Starball_Red.svg">'
         }
         rate.innerHTML = star
+        rateInsideImg.innerHTML = star
+
         card.appendChild(rate)
+        imageCardBox.appendChild(rateInsideImg)
     }
 
     card.appendChild(imageCardBox)
