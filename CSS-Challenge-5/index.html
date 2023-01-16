@@ -10,59 +10,83 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="grid">
-        <div class="row">
-            <div class="col-5 input">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" placeholder="Nombre completo">
+    <div class="grid px-5">
+        <div class="row py-2">
+            <div class="col-4 py-3 px-5 input border rounded border-dark">
+                <label for="nombre">Nombre completo</label><br>
+                <input type="text" id="nombre" placeholder="Nombre">
             </div>
-            <div class="col-7 helptext">
-                Escriba su nombre completo, empezando con apellido paterno, luego materno y al final
-                su nombre de pila.<br><b>Ejemplo: Ponce Pio Marlen</b>
+            <div class="col-5 py-3 px-5 helptext border rounded border-dark">
+                <p>
+                    Escriba su nombre completo, empezando con apellido paterno, luego materno y al final
+                    su nombre de pila.<br><i>Ejemplo: Ponce Pio Marlen</i>
+                </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-5 input">
-                <label for="email">Email</label>
+        <div class="row py-2">
+            <div class="col-4 py-3 px-5 input border rounded border-dark">
+                <label for="email">Email</label><br>
                 <input type="email" id="" placeholder="email">
             </div>
-            <div class="col-7 helptext">
-                Escriba su correo electronico 
+            <div class="col-5 py-3 px-5 helptext border rounded border-dark">
+                <p>
+                    Escriba un correo electronico válido. En él recibira un correo de confirmación de su compra
+                    <br><i>enriquejimenez@gmail.com</i>
+                </p>
             </div>
         </div>
         
-        <div class="row">
-            <div class="col-5 input">
+        <div class="row py-2">
+            <div class="col-4 py-3 px-5 input border rounded border-dark">
                 <span>Escoja un método de pago</span><br>
-                <label for="option1">Transferencia</label>
-                <input type="checkbox" id="option1" value="transferencia">
+                <p>
+                    <label for="option1">Transferencia</label>
+                    <input type="checkbox" id="option1" value="transferencia"><br>
 
-                <label for="option2">Pago en sucursal</label>
-                <input type="checkbox" id="option2" value="sucursal">
+                    <label for="option2">Pago en sucursal</label>
+                    <input type="checkbox" id="option2" value="sucursal"><br>
 
-                <label for="option3">Tarjeta de puntos</label>
-                <input type="checkbox" id="option3" value="puntos">
+                    <label for="option3">Tarjeta de puntos</label>
+                    <input type="checkbox" id="option3" value="puntos"><br>
+                </p>
             </div>
-            <div class="col-7 helptext">
-                Escoja la forma en la que realizara
+            <div class="col-5 py-3 px-5 helptext border rounded border-dark">
+                <p>Escoja un método con el cual realizar su compra.</p>  
             </div>
         </div>
-        <div class="row">
-            <div class="col-5 input">
-                <label for=""></label>
-                <input type="text" id="" placeholder="">
+        <div class="row py-2">
+            <div class="col-4 py-3 px-5 input border rounded border-dark">
+                <label for="ccn">Número de tarjeta de crédito</label><br>
+                <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
             </div>
-            <div class="col-7 helptext">
-                Text
+            <div class="col-5 py-3 px-5 helptext border rounded border-dark">
+                <p>
+                    Para validar que la tarjeta sea valida, se le hará un cobro de 1 dolar que
+                    le será reembolsado inmediatamente
+                    <br><i>Ejemplo: 4548812049400004</i>
+                </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-5 input">
-                <label for=""></label>
-                <input type="text" id="" placeholder="">
+        <div class="row py-2">
+            <div class="col-4 py-3 px-5 input border rounded border-dark">
+                <label for="nacimiento">Fecha de nacimiento</label><br>
+                <input type="date" id="nacimiento" placeholder="">
             </div>
-            <div class="col-7 helptext">
-                Text
+            <div class="col-5 py-3 px-5 helptext border rounded border-dark">
+                <p>Escriba su fecha de nacimiento en un formato valido de dd/mm/aaaa</p>
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-4 py-3 px-5 input border rounded border-dark">
+                <label for="dirección">Dirección de entrega</label><br>
+                <input type="text" id="dirección" placeholder="">
+            </div>
+            <div class="col-5 py-3 px-5 helptext border rounded border-dark">
+                <p>
+                    Escriba su dirección completa de la siguiente forma:<br>
+                    Calle #numero, Colonia, Municipio, Estado 
+                    <br><i>Ejemplo: Benemerito #102, Eduardo Ruiz, Patzcuaro, Michoacán</i>
+                </p>
             </div>
         </div>
         

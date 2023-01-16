@@ -1,6 +1,19 @@
+.input .helptext .col-4{
+    border: 20px solid black !important;
+}
 .input{
-    background-color: cyan;
+    background-color: #78C0E0;
 }
 .helptext{
-    background-color: blueviolet;
+    background-color: #36558F;
+    color: white;
+}
+input[type="text"], input[type="number"], input[type="tel"], input[type="email"], .input p{
+    width:70%;
+}
+input[type="date"]{
+    width:60%;
+}
+.input p{
+    text-align: right;
 }
