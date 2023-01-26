@@ -1,15 +1,16 @@
-function checkPowerPoint(target: Object, propertyKey: string, descriptor: any):void {   
-    descriptor.value = function(...args: any[]){
-
-        if(args[0].power < this.ppAvailable){
-            console.log(`${this.name} executed ${move.name}`)
-            this.ppAvailable -= move.power;
-        } else {
-            console.log(`Can't execute attack! ${this.name} doesn't have enough power for ${move.name}!`)
-        }
-    }
-    return descriptor
+function checkPowerPoint(target: Object, propertyKey: string, descriptor: PropertyDescriptor):void {   
+  const classFunction = descriptor.value
+  
+  descriptor.value = function(...args: any){
+      if(args[0].power > this.ppAvailable){
+          console.log(`Can't execute attack! ${this.name} doesn't have enough power for ${move.name}!`)
+          return
+      }
+    classFunction.apply(this, args)
+  }
+    
 }
+
 
 
 class Pokemon {
@@ -24,7 +25,6 @@ class Pokemon {
   figth(move: any) {
     console.log(`${this.name} used ${move?.name}!`);
     this.ppAvailable -= move.power;
-    console.log(this.ppAvailable)
   }
 }
   
