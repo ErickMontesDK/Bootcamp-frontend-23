@@ -1,0 +1,15 @@
+{
+  "name": "pm-challenge-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "npm": ">= 8.19.3",
+    "yarn": "please-use-npm"
+  },
+  "author": "",
+  "license": "ISC"
+}
