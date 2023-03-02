@@ -12,11 +12,11 @@ export class QuestionBoxComponent {
   gameValues = ['piedra','papel','tijeras'];
 
   evaluateType(inputResponse:Event){
-    const randomNumber = Math.floor(Math.random() * 3)
-    this.programChoosed = this.gameValues[randomNumber]
+    const randomNumber = Math.floor(Math.random() * 3);
+    this.programChoosed = this.gameValues[randomNumber];
     
     const inputType = (<HTMLInputElement>inputResponse.target).value.toLocaleLowerCase();
-    (<HTMLInputElement>inputResponse.target).value=''
+    (<HTMLInputElement>inputResponse.target).value='';
 
     switch (inputType) {
       case 'piedra':
@@ -28,6 +28,8 @@ export class QuestionBoxComponent {
       case 'tijeras':
         this.gameResult = this.programChoosed === 'piedra' ? 'perdio' : (inputType === this.programChoosed ? 'empato' : 'gano');
         break;
+      default:
+        this.gameResult = 'invalid';
     }
   }
 }

@@ -1,0 +1,43 @@
+.card
+  position: relative
+  text-transform: capitalize
+  color: white
+  border-radius:15px
+  height:150px
+  width:300px
+  font-weight: bold
+  padding: 25px
+  display: flex
+  align-items: center
+  .card-info
+    display: flex
+    flex-direction: column
+    .pokemon-name
+      font-size: 30px
+      margin: 10px 0 20px
+    .pokemon-id
+      font-size: 18px
+    .types-container
+      display: flex
+      column-gap:10px
+      .type-card
+        display: inherit
+        flex-direction: row
+        align-items: center
+        justify-content: center
+        border-radius: 7px
+        width: 55px
+        height: 25px
+        font-size: 12px
+        img
+          height: 12px
+          width: 12px
+          filter: invert(100%)
+
+
+  .sprite
+    position: absolute
+    top:50%
+    right:-50px
+    transform: translateY(-50%)
+    height:100%

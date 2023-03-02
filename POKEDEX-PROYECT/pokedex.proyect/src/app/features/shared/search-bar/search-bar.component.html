@@ -1,0 +1,11 @@
+<div class="searchbar">
+  <div class="input-box">
+    <i class="fa-solid fa-magnifying-glass"></i> 
+    <input type="text" 
+    placeholder="What Pokémon are you looking for?"
+    [(ngModel)]="inputValue" 
+    (ngModelChange)="inputValueChange.emit($event)"/>
+  </div>
+    
+  <span>Search for pokémon by name or using the National Pokédex number</span>
+</div>

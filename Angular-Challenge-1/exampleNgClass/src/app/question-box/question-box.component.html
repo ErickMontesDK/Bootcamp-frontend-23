@@ -1,12 +1,13 @@
 <div [ngClass]="{'correct':gameResult==='gano', 'incorrect':(gameResult==='perdio' || gameResult==='empato')}">
     <input type="text" 
     (keyup.enter)="evaluateType($event)">
-    <p *ngIf="gameResult!==undefined">Yo escogí 
+    <p *ngIf="gameResult!==undefined && gameResult !== 'invalid'">Yo escogí 
         <span *ngIf="programChoosed==='papel'">papel</span>
         <span *ngIf="programChoosed==='piedra'">piedra</span>
         <span *ngIf="programChoosed==='tijeras'">tijeras</span> asi que 
         <b *ngIf="gameResult==='perdio'">PERDISTE :P</b> 
         <b *ngIf="gameResult==='gano'">GANASTÉ :'c</b>
-        <b *ngIf="gameResult==='empato'">ESCOGIMOS LO MISMO</b>
+        <b *ngIf="gameResult==='empato'">EMPATAMOS</b>
     </p>
+    <p *ngIf="gameResult == 'invalid'"><b>No escribiste un valor valido</b></p>
 </div>

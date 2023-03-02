@@ -1,0 +1,8 @@
+<app-search-bar
+(inputValueChange)="searchPokemon($event)">
+</app-search-bar>
+<div class="list-component" infinite-scroll [infiniteScrollDistance]="3" (scrolled)="onScroll()">
+  <app-pokemon-card 
+  *ngFor="let pokemon of displayPokemon"
+  [pokemon]="pokemon"></app-pokemon-card>
+</div>

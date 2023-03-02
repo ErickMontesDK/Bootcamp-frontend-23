@@ -1,0 +1,18 @@
+<div class="card"
+[ngStyle]="{'background-color':assignBackground(pokemon.types[0])}">
+  <div class="card-info">
+    <span class="pokemon-id">#{{pokemon.id}}</span>
+    <span class="pokemon-name">{{pokemon.name}}</span>
+    <div class="types-container">
+      <div 
+      *ngFor="let type of pokemon.types"
+      class="type-card"
+      [ngStyle]="{'background-color':assignColorType(type)}">
+        <span [class]="type">
+          <img src="../../../../../assets/assets pokedex/Bug.svg">
+          {{type}}</span>
+      </div>
+    </div>
+  </div>
+  <img class="sprite" [src]="pokemon.sprite">
+</div>
