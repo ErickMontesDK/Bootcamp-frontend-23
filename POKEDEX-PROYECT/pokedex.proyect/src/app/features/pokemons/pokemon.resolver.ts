@@ -9,8 +9,8 @@ export class PokemonResolver implements Resolve<Pokemon> {
 
   constructor(private pokemonService: PokemonService) {}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Pokemon> {
-    const id = route.paramMap.get('id');
-    return this.pokemonService.getPokemonByName(id);
-  }
-}
+//   resolve(route: ActivatedRouteSnapshot): Observable<Pokemon> {
+//     const id = route.paramMap.get('id');
+//     return this.pokemonService.getPokemonByName(id);
+//   }
+// }
