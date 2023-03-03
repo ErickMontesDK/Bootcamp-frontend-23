@@ -9,6 +9,7 @@ export type PokemonDetails = {
 	name: string,
 	id: string,
 	description: string,
+	nickname: string,
 	defaultSprite: string,
 	shinySprite?: string,
 	femaleSprite?: string,
@@ -22,7 +23,6 @@ export type PokemonDetails = {
 	height: number,
 	weight: number,
 	abilities: string[],
- 	weekness: string[],
 	generation: number
 }
 

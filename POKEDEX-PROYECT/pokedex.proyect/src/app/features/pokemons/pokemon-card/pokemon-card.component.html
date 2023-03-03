@@ -10,7 +10,7 @@
       class="type-card"
       [ngStyle]="{'background-color':assignColorType(type)}">
         <span [class]="type">
-          <img src="../../../../../assets/assets pokedex/Bug.svg">
+          <img [src]="'../../../../../assets/assets-pokedex/' + type.charAt(0).toUpperCase()+type.slice(1) + '.svg'">          
           {{type}}</span>
       </div>
     </div>

@@ -1,1 +1,15 @@
-<p>pokemon-detail works!</p>
+<div>
+  <div class="info-tab">
+    <button>return</button>
+    <span class="id">{{pokemon.id}}</span>
+    <span class="name">{{pokemon.name}}</span>
+    <span class="generation"></span>
+    <div class="types-images">
+      <div *ngFor="let type of pokemon.types"
+      [ngStyle]="{'background-color':assignColorType(type)}">
+    </div>
+    </div>
+  </div>
+
+  <div class="pokemon-view"></div>
+</div>

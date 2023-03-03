@@ -22,4 +22,9 @@ export class PokemonService {
     const listPokemonInGeneration = this.http.get(`https://pokeapi.co/api/v2/generation/${regionNumber}`);
     return listPokemonInGeneration
    }
+
+   getPokemonSpeciesInfo(url:string){
+    const pokemonSpeciesData = this.http.get(`${url}`);
+    return pokemonSpeciesData
+   }
 }

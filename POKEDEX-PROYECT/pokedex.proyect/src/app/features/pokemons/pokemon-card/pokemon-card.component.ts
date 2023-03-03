@@ -21,7 +21,6 @@ export class PokemonCardComponent{
    
    openDetail(){
     this.router.navigate([`/pokedex/${this.pokemon.id}`])
-
    }
 }
  
