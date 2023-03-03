@@ -6,6 +6,7 @@ import { PokemonService } from './features/pokemons/pokemon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './features/shared/shares.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SharedModule } from './features/shared/shares.module';
     HttpClientModule,
     RouterModule,
     PokemonsModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule
   ],
   providers: [PokemonsModule,PokemonService],
   bootstrap: [AppComponent]

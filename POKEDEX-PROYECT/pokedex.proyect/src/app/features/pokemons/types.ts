@@ -4,6 +4,28 @@ export type Pokemon = {
   sprite: string
   types: string[]
 }
+
+export type PokemonDetails = {
+	name: string,
+	id: string,
+	description: string,
+	defaultSprite: string,
+	shinySprite?: string,
+	femaleSprite?: string,
+	hp: {base: number, min: number, max: number},
+	attack: {base: number, min: number, max: number},
+	defense: {base: number, min: number, max: number},
+	specialAttack: {base: number, min: number, max: number},
+	specialDefense: {base: number, min: number, max: number},
+	speed: {base: number, min: number, max: number},
+	types: string[],
+	height: number,
+	weight: number,
+	abilities: string[],
+ 	weekness: string[],
+	generation: number
+}
+
 export const pokemonTypeColorMap: Record<string, { main: string; background: string; }> = {
 	normal: {main:'#A8A77A', background:'#B5B9C4'},
 	fire: {main:'#EE8130', background:'#FFA756'},

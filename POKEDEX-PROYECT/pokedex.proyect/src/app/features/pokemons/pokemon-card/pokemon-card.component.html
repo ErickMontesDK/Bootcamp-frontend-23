@@ -1,5 +1,6 @@
 <div class="card"
-[ngStyle]="{'background-color':assignBackground(pokemon.types[0])}">
+[ngStyle]="{'background-color':assignBackground(pokemon.types[0])}"
+(click)="openDetail()">
   <div class="card-info">
     <span class="pokemon-id">#{{pokemon.id}}</span>
     <span class="pokemon-name">{{pokemon.name}}</span>
